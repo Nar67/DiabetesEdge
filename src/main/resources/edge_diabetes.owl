@@ -1,0 +1,520 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/nars/ontologies/2020/4/edge_diabetes#"
+     xml:base="http://www.semanticweb.org/nars/ontologies/2020/4/edge_diabetes"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:edge_diabetes="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#">
+    <owl:Ontology rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#created_by -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#created_by"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#highMeasurementCauses -->
+
+    <owl:AnnotationProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#highMeasurementCauses"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#lowMeasurementCauses -->
+
+    <owl:AnnotationProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#lowMeasurementCauses"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#measurement_value -->
+
+    <rdfs:Datatype rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#measurement_value">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">500</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#generates -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#generates">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MAXO_0000567"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasDisease -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasDisease"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasKnowledgeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasKnowledgeOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OMIT_0005198"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasOnHighSugar -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasOnHighSugar"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasOnLowSugar -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasOnLowSugar"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasSpecializedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasSpecializedIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#isOfType -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#isOfType"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#needs -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#needs"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses -->
+
+    <owl:ObjectProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#CH_measurement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#CH_measurement"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#glucose_measurement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#glucose_measurement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#insulin_dose -->
+
+    <owl:DatatypeProperty rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#insulin_dose"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MAXO_0000567 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MAXO_0000567">
+        <rdfs:subClassOf rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Blood_sugar_sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#glucose_measurement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#measurement_value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A quantitative measurement for assessing the amount of glucose present in a blood sample.</obo:IAO_0000115>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-30T19:58:59Z</dc:date>
+        <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0001-7941-2961"/>
+        <oboInOwl:hasDbXref>NCIT:C92744</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>blood glucose assessment</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>blood glucose test</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>blood surgar test</oboInOwl:hasExactSynonym>
+        <edge_diabetes:lowMeasurementCauses rdf:resource="http://purl.obolibrary.org/obo/OMIT_0008136"/>
+        <rdfs:label xml:lang="en">blood glucose measurement</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/MAXO_0000567"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A quantitative measurement for assessing the amount of glucose present in a blood sample.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NCIT:C92744</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0003146 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0003146">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blood Glucose</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0005198 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0005198">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Diabetes Mellitus, Type 1</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0005947 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0005947">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Endocrinology</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0008077 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0008077">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hyperglycemia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0008136 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0008136">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hypoglycemia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0024180 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0024180">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Insulin, Long-Acting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OMIT_0027938 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OMIT_0027938">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Insulin, Short-Acting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Activity_Tracker -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Activity_Tracker"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Blood_Sugar_Predictor -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Blood_Sugar_Predictor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/MAXO_0000567"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses"/>
+                <owl:someValuesFrom rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Activity_Tracker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Blood_sugar_sensor -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Blood_sugar_sensor">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OMIT_0003146"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#generates"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/MAXO_0000567"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Camera -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Camera"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Carbohydrate_measurer -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Carbohydrate_measurer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/MAXO_0000567"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses"/>
+                <owl:someValuesFrom rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Carbohydrate_measurer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#CH_measurement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Diabetic -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Diabetic">
+        <rdfs:subClassOf rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasOnHighSugar"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMIT_0008077"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasOnLowSugar"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMIT_0008136"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#needs"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMIT_0024180"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#needs"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMIT_0027938"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasDisease"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OMIT_0005198"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Doctor -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Doctor">
+        <rdfs:subClassOf rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Endocrinologist -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Endocrinologist">
+        <rdfs:subClassOf rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Doctor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasKnowledgeOf"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMIT_0005198"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#hasSpecializedIn"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OMIT_0005947"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Insulin_Dosage_Recommender -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Insulin_Dosage_Recommender">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#uses"/>
+                <owl:someValuesFrom rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Carbohydrate_measurer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#insulin_dose"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Measure -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Measure"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Person -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Person"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Reminder -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Reminder"/>
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#WeightScale -->
+
+    <owl:Class rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#WeightScale"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Measure1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Measure1">
+        <rdf:type rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#Measure"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#isOfType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OMIT_0003146"/>
+            </owl:Restriction>
+        </rdf:type>
+        <edge_diabetes:glucose_measurement rdf:datatype="http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#measurement_value">120</edge_diabetes:glucose_measurement>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

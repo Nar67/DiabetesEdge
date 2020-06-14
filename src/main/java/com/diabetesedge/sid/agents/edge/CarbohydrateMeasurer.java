@@ -2,7 +2,8 @@ package com.diabetesedge.sid.agents.edge;
 
 import static com.diabetesedge.sid.utils.MessageUtils.sendRequestAndWaitResponse;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
@@ -14,7 +15,7 @@ import jade.lang.acl.ACLMessage;
 
 public class CarbohydrateMeasurer extends Agent
 {
-    private static final Logger LOGGER = Logger.getLogger(CarbohydrateMeasurer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CarbohydrateMeasurer.class);
 
     @Override
     protected void setup()
@@ -41,10 +42,9 @@ public class CarbohydrateMeasurer extends Agent
             @Override
             protected void onTick()
             {
-                LOGGER.info("");
                 ACLMessage msg =
                     sendRequestAndWaitResponse("Environment", "", CarbohydrateMeasurer.this);
-                System.out.println("Content: " + msg.getContent());
+                LOGGER.info("Content: " + msg.getContent());
             }
         };
 

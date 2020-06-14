@@ -4,7 +4,8 @@ import static com.diabetesedge.sid.utils.MessageUtils.createReply;
 
 import java.util.Random;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
@@ -17,7 +18,7 @@ import jade.lang.acl.ACLMessage;
 
 public class Environment extends Agent
 {
-    private static final Logger LOGGER = Logger.getLogger(Environment.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Environment.class);
 
     @Override
     protected void setup()

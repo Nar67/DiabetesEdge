@@ -1,16 +1,21 @@
-package com.diabetesedge.sid.agents.cloud;
+package com.diabetesedge.sid.agents.edge;
 
-import org.apache.log4j.Logger;
+import static com.diabetesedge.sid.utils.MessageUtils.sendRequestAndWaitResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
+import jade.core.behaviours.TickerBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
+import jade.lang.acl.ACLMessage;
 
 public class DosageRecommender extends Agent
 {
-    private static final Logger LOGGER = Logger.getLogger(DosageRecommender.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DosageRecommender.class);
 
     @Override
     protected void setup()
@@ -31,6 +36,19 @@ public class DosageRecommender extends Agent
         {
             e.printStackTrace();
         }
+
+        TickerBehaviour ticker = new TickerBehaviour(this, 1000)
+        {
+            @Override
+            protected void onTick()
+            {
+                ACLMessage msg =
+                    sendRequestAndWaitResponse("Environment", "", DosageRecommender.this);
+                LOGGER.info("Content: " + msg.getContent());
+            }
+        };
+
+        this.addBehaviour(ticker);
 
     }
 }

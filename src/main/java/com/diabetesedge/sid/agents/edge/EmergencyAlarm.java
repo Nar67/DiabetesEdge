@@ -1,6 +1,7 @@
 package com.diabetesedge.sid.agents.edge;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
 import jade.domain.DFService;
@@ -10,7 +11,7 @@ import jade.domain.FIPAAgentManagement.ServiceDescription;
 
 public class EmergencyAlarm extends Agent
 {
-    private static final Logger LOGGER = Logger.getLogger(EmergencyAlarm.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmergencyAlarm.class);
 
     @Override
     protected void setup()

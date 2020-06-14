@@ -1,5 +1,6 @@
 package com.diabetesedge.sid.agents.edge;
 
+import static com.diabetesedge.sid.utils.MessageUtils.sendMessage;
 import static com.diabetesedge.sid.utils.MessageUtils.sendRequestAndWaitResponse;
 
 import org.slf4j.Logger;
@@ -44,6 +45,16 @@ public class GlucoseSensor extends Agent
             {
                 ACLMessage msg = sendRequestAndWaitResponse("Environment", "", GlucoseSensor.this);
                 LOGGER.info("Content: " + msg.getContent());
+                sendMessage("DosageRecommender", msg.getContent(), GlucoseSensor.this);
+                if (Integer.valueOf(msg.getContent()) < 90)
+                {
+                    sendMessage("HypoglycemiaAlarm", "Sugar low, please eat or drink",
+                        GlucoseSensor.this);
+                    if (Integer.valueOf(msg.getContent()) < 45)
+                    {
+                        sendMessage("EmergencyAlarm", "Need medical emergency", GlucoseSensor.this);
+                    }
+                }
             }
         };
 

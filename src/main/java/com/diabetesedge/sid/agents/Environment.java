@@ -61,7 +61,8 @@ public class Environment extends Agent
 
     private void manageRequest(final ACLMessage msg)
     {
-        if (msg.getSender().getName().contains("GlucoseSensor"))
+        if (msg.getSender().getName().contains("GlucoseSensor")
+            || msg.getSender().getName().contains("GlucosePredictor"))
         {
             send(createReply(msg, Integer.toString(new Random().nextInt(330) + 30)));
 
@@ -69,6 +70,10 @@ public class Environment extends Agent
         else if (msg.getSender().getName().contains("CarbohydrateMeasurer"))
         {
             send(createReply(msg, Integer.toString(new Random().nextInt(120))));
+        }
+        else if (msg.getSender().getName().contains("DosageRecommender"))
+        {
+            send(createReply(msg, Integer.toString(new Random().nextInt(30))));
         }
     }
 }

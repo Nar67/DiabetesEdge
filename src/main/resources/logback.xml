@@ -7,7 +7,7 @@
         </encoder>
     </appender>
     
-    <logger name="SID">
+    <logger name="GlucoseSensor">
         <level value="INFO" />
     </logger>  
     

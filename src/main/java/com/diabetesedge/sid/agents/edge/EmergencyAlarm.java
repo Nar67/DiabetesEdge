@@ -4,10 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
+import jade.core.behaviours.CyclicBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
+import jade.lang.acl.ACLMessage;
 
 public class EmergencyAlarm extends Agent
 {
@@ -32,6 +34,19 @@ public class EmergencyAlarm extends Agent
         {
             e.printStackTrace();
         }
+
+        CyclicBehaviour reciever = new CyclicBehaviour()
+        {
+
+            @Override
+            public void action()
+            {
+                ACLMessage msg1 = blockingReceive();
+                LOGGER.info("Recieved critical low levels of blood glucose. Calling for help.");
+            }
+        };
+
+        this.addBehaviour(reciever);
 
     }
 }

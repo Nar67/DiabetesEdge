@@ -1,5 +1,6 @@
 package com.diabetesedge.sid.agents.edge;
 
+import static com.diabetesedge.sid.utils.MessageUtils.sendMessage;
 import static com.diabetesedge.sid.utils.MessageUtils.sendRequestAndWaitResponse;
 
 import org.slf4j.Logger;
@@ -45,6 +46,7 @@ public class CarbohydrateMeasurer extends Agent
                 ACLMessage msg =
                     sendRequestAndWaitResponse("Environment", "", CarbohydrateMeasurer.this);
                 LOGGER.info("Content: " + msg.getContent());
+                sendMessage("DosageRecommender", msg.getContent(), CarbohydrateMeasurer.this);
             }
         };
 

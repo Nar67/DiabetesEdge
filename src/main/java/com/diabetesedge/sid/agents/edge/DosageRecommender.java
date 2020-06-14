@@ -1,12 +1,14 @@
 package com.diabetesedge.sid.agents.edge;
 
+import static com.diabetesedge.sid.utils.MessageUtils.sendMessage;
 import static com.diabetesedge.sid.utils.MessageUtils.sendRequestAndWaitResponse;
 
+import org.apache.jena.ext.com.google.common.base.CharMatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
-import jade.core.behaviours.TickerBehaviour;
+import jade.core.behaviours.CyclicBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
@@ -37,18 +39,52 @@ public class DosageRecommender extends Agent
             e.printStackTrace();
         }
 
-        TickerBehaviour ticker = new TickerBehaviour(this, 1000)
+        CyclicBehaviour reciever = new CyclicBehaviour()
         {
+
             @Override
-            protected void onTick()
+            public void action()
             {
-                ACLMessage msg =
+                ACLMessage msg1 = blockingReceive();
+                ACLMessage msg2 = blockingReceive();
+                ACLMessage response =
                     sendRequestAndWaitResponse("Environment", "", DosageRecommender.this);
-                LOGGER.info("Content: " + msg.getContent());
+                String content = setPredictorContent(msg1, msg2, response);
+                System.out.println("Recommender: " + content);
+                sendMessage("GlucosePredictor", content, DosageRecommender.this);
             }
         };
 
-        this.addBehaviour(ticker);
+        this.addBehaviour(reciever);
 
+    }
+
+    protected String setPredictorContent(final ACLMessage msg1, final ACLMessage msg2, final ACLMessage response)
+    {
+        String content = "";
+        if(msg1.getSender().getName().contains("GlucoseSensor"))
+        {
+            content += msg1.getContent() + "#";
+        }
+        else if(msg2.getSender().getName().contains("GlucoseSensor"))
+        {
+            content += msg2.getContent() + "#";
+        }
+
+        if (!content.equals("") && msg1.getSender().getName().contains("CarbohydrateMeasurer"))
+        {
+            content += msg1.getContent() + "#";
+        }
+        else if (!content.equals("") && msg2.getSender().getName().contains("CarbohydrateMeasurer"))
+        {
+            content += msg2.getContent() + "#";
+        }
+
+        if (CharMatcher.is('#').countIn(content) == 2)
+        {
+            content += response.getContent();
+            return content;
+        }
+        return "";
     }
 }

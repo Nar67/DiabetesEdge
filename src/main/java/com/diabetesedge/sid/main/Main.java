@@ -8,8 +8,13 @@ package com.diabetesedge.sid.main;
 import java.io.FileNotFoundException;
 
 import com.diabetesedge.sid.agents.Environment;
+import com.diabetesedge.sid.agents.cloud.GlucosePredictor;
 import com.diabetesedge.sid.agents.edge.CarbohydrateMeasurer;
+import com.diabetesedge.sid.agents.edge.DosageRecommender;
+import com.diabetesedge.sid.agents.edge.EmergencyAlarm;
 import com.diabetesedge.sid.agents.edge.GlucoseSensor;
+import com.diabetesedge.sid.agents.user.App;
+import com.diabetesedge.sid.agents.user.HypoglycemiaAlarm;
 import com.diabetesedge.sid.utils.OntologyManager;
 
 import jade.core.Profile;
@@ -63,9 +68,28 @@ public class Main {
         AgentController CHMeasurer = container.createNewAgent("CarbohydrateMeasurer",
             CarbohydrateMeasurer.class.getName(), null);
 
+        AgentController dosageRecommender =
+            container.createNewAgent("DosageRecommender", DosageRecommender.class.getName(), null);
+
+        AgentController glucosePredictor =
+            container.createNewAgent("GlucosePredictor", GlucosePredictor.class.getName(), null);
+
+        AgentController appAgent = container.createNewAgent("App", App.class.getName(), null);
+
+        AgentController emergencyAlarm =
+            container.createNewAgent("EmergencyAlarm", EmergencyAlarm.class.getName(), null);
+
+        AgentController hypoAlarm =
+            container.createNewAgent("HypoglycemiaAlarm", HypoglycemiaAlarm.class.getName(), null);
+
         environment.start();
         glucoseSensor.start();
         CHMeasurer.start();
+        dosageRecommender.start();
+        glucosePredictor.start();
+        appAgent.start();
+        emergencyAlarm.start();
+        hypoAlarm.start();
 
 
     }

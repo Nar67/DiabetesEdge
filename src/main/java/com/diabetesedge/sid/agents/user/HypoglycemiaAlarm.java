@@ -1,13 +1,17 @@
 package com.diabetesedge.sid.agents.user;
 
+import static com.diabetesedge.sid.utils.MessageUtils.sendMessage;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import jade.core.Agent;
+import jade.core.behaviours.CyclicBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
+import jade.lang.acl.ACLMessage;
 
 public class HypoglycemiaAlarm extends Agent
 {
@@ -33,5 +37,17 @@ public class HypoglycemiaAlarm extends Agent
             e.printStackTrace();
         }
 
+        CyclicBehaviour reciever = new CyclicBehaviour()
+        {
+
+            @Override
+            public void action()
+            {
+                ACLMessage msg1 = blockingReceive();
+                sendMessage("App", msg1.getContent(), HypoglycemiaAlarm.this);
+            }
+        };
+
+        this.addBehaviour(reciever);
     }
 }

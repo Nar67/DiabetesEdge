@@ -77,7 +77,6 @@ public class App extends Agent
 
         };
 
-
         this.addBehaviour(reciever);
 
         WakerBehaviour waker = new WakerBehaviour(this, 10000)
@@ -96,11 +95,5 @@ public class App extends Agent
         this.addBehaviour(waker);
 
     }
-//
-//    @Override
-//    protected void takeDown()
-//    {
-//        System.out.println("TestBye");
-//    }
 
 }

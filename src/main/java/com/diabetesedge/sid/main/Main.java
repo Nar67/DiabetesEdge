@@ -33,15 +33,6 @@ public class Main {
     public static void main(final String[] args) throws FileNotFoundException, StaleProxyException
     {
 
-//        String JENA = "./";
-//        String File = "src/main/resources/edge_diabetes.owl";
-//        String NamingContext = "http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes";
-//        String ns = "http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#";
-//
-//        System.out.println("----------------Starting program -------------");
-//
-//        // OntologyManager ont = new OntologyManager(JENA, File, NamingContext);
-
         final Profile profile = new ProfileImpl();
         profile.setParameter(Profile.CONTAINER_NAME, "DIABETES_EDGE");
         profile.setParameter(Profile.GUI, "true");

@@ -47,6 +47,7 @@ public class GlucosePredictor extends Agent
                 ACLMessage msg1 = blockingReceive();
                 ACLMessage response =
                     sendRequestAndWaitResponse("Environment", "", GlucosePredictor.this);
+                LOGGER.info("Sending glucose levels prediction to App");
                 sendMessage("App", msg1.getContent() + "#" + response.getContent(),
                     GlucosePredictor.this);
             }

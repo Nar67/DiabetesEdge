@@ -74,4 +74,9 @@ public class MessageUtils
         return reply;
     }
 
+    public static String getSenderName(final ACLMessage msg)
+    {
+        return msg.getSender().getName().split("@")[0];
+    }
+
 }

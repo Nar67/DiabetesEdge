@@ -8,6 +8,10 @@
             <id>tilab</id>
             <url>https://jade.tilab.com/maven/</url>
         </repository>
+        <repository>
+            <id>maven-central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -31,6 +35,28 @@
             <artifactId>jena-shaded-guava</artifactId>
             <version>3.14.0</version>
       </dependency>
+	  <dependency>
+	        <groupId>jfree</groupId>
+	        <artifactId>jfreechart</artifactId>
+	        <version>1.0.13</version>
+            <exclusions>
+                <exclusion>  <!-- declare the exclusion here -->
+                    <groupId>gnujaxp</groupId>
+                    <artifactId>gnujaxp</artifactId>
+                </exclusion>
+            </exclusions>
+      </dependency>
+	  <dependency>
+	        <groupId>jfree</groupId>
+	        <artifactId>jcommon</artifactId>
+	        <version>1.0.14</version>
+            <exclusions>
+                <exclusion>  <!-- declare the exclusion here -->
+                    <groupId>gnujaxp</groupId>
+                    <artifactId>gnujaxp</artifactId>
+                </exclusion>
+            </exclusions>
+	  </dependency>
       <dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>jena-base</artifactId>
@@ -47,14 +73,14 @@
             <version>1.12.0</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.10</version>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-core</artifactId>
+		    <version>1.2.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.30</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -62,4 +88,33 @@
             <version>1.2.3</version>
         </dependency>
     </dependencies>
+    <build>
+	    <plugins>
+		    <plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-assembly-plugin</artifactId>
+		    <executions>
+		        <execution>
+	                <id>jar-with-dependencies</id>
+	                <phase>package</phase>
+	                <goals>
+	                    <goal>single</goal>
+	                </goals>
+	                <configuration>
+	                    <descriptorRefs>
+	                        <descriptorRef>jar-with-dependencies</descriptorRef>
+	                    </descriptorRefs>
+	                    <appendAssemblyId>false</appendAssemblyId>
+	                    <archive>
+	                        <manifest>
+	                            <mainClass>com.diabetesedge.sid.main.Main</mainClass>
+	                            <addClasspath>true</addClasspath>
+	                        </manifest>
+	                    </archive>
+	                </configuration>
+                </execution>
+		    </executions>
+		    </plugin>
+	    </plugins>
+    </build>
 </project>

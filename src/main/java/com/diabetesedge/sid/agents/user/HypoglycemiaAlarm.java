@@ -44,6 +44,7 @@ public class HypoglycemiaAlarm extends Agent
             public void action()
             {
                 ACLMessage msg1 = blockingReceive();
+                LOGGER.info("Received low levels of glucose, sending alarm to App agent");
                 sendMessage("App", msg1.getContent(), HypoglycemiaAlarm.this);
             }
         };

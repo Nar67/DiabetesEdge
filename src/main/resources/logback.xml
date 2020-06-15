@@ -3,15 +3,11 @@
         <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
     
         <encoder>
-           <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+           <pattern>%yellow(%d{HH:mm:ss.SSS}) %red([%thread]) %green(%-5level) - %cyan(%msg%n)</pattern>
         </encoder>
     </appender>
-    
-    <logger name="GlucoseSensor">
-        <level value="INFO" />
-    </logger>  
     
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
-</configuration>oding="UTF-8"?>
+</configuration>

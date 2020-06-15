@@ -50,7 +50,7 @@ public class DosageRecommender extends Agent
                 ACLMessage response =
                     sendRequestAndWaitResponse("Environment", "", DosageRecommender.this);
                 String content = setPredictorContent(msg1, msg2, response);
-                System.out.println("Recommender: " + content);
+                LOGGER.info("Sending values to Glucose Predictor");
                 sendMessage("GlucosePredictor", content, DosageRecommender.this);
             }
         };
@@ -59,30 +59,40 @@ public class DosageRecommender extends Agent
 
     }
 
-    protected String setPredictorContent(final ACLMessage msg1, final ACLMessage msg2, final ACLMessage response)
+    protected String setPredictorContent(final ACLMessage msg1, final ACLMessage msg2, final ACLMessage msg3)
     {
         String content = "";
         if(msg1.getSender().getName().contains("GlucoseSensor"))
         {
+            LOGGER.info("Receieved from glucose sensor a measure with value: {}",
+                msg1.getContent());
             content += msg1.getContent() + "#";
         }
         else if(msg2.getSender().getName().contains("GlucoseSensor"))
         {
+            LOGGER.info("Receieved from glucose sensor a measure with value: {}",
+                msg2.getContent());
             content += msg2.getContent() + "#";
         }
 
         if (!content.equals("") && msg1.getSender().getName().contains("CarbohydrateMeasurer"))
         {
+            LOGGER.info("Receieved from Carbohydrate measurer a measure with value: {}",
+                msg1.getContent());
             content += msg1.getContent() + "#";
         }
         else if (!content.equals("") && msg2.getSender().getName().contains("CarbohydrateMeasurer"))
         {
+            LOGGER.info("Receieved from Carbohydrate measurer a measure with value: {}",
+                msg2.getContent());
             content += msg2.getContent() + "#";
         }
 
         if (CharMatcher.is('#').countIn(content) == 2)
         {
-            content += response.getContent();
+            LOGGER.info("Generated Insulin dosage recommendation with value: {}",
+                msg3.getContent());
+            content += msg3.getContent();
             return content;
         }
         return "";

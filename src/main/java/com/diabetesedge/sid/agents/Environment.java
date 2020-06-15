@@ -1,6 +1,7 @@
 package com.diabetesedge.sid.agents;
 
 import static com.diabetesedge.sid.utils.MessageUtils.createReply;
+import static com.diabetesedge.sid.utils.MessageUtils.getSenderName;
 
 import java.util.Random;
 
@@ -64,15 +65,19 @@ public class Environment extends Agent
         if (msg.getSender().getName().contains("GlucoseSensor")
             || msg.getSender().getName().contains("GlucosePredictor"))
         {
+            LOGGER.info("Generated glucose level, sending to agent {}", getSenderName(msg));
             send(createReply(msg, Integer.toString(new Random().nextInt(330) + 30)));
 
         }
         else if (msg.getSender().getName().contains("CarbohydrateMeasurer"))
         {
+            LOGGER.info("Generated carbohydrate measure, sending to agent {}", getSenderName(msg));
             send(createReply(msg, Integer.toString(new Random().nextInt(120))));
         }
         else if (msg.getSender().getName().contains("DosageRecommender"))
         {
+            LOGGER.info("Generated Insulin dosage recommender, sending to agent {}",
+                getSenderName(msg));
             send(createReply(msg, Integer.toString(new Random().nextInt(30))));
         }
     }

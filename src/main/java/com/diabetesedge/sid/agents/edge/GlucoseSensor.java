@@ -44,7 +44,7 @@ public class GlucoseSensor extends Agent
             protected void onTick()
             {
                 ACLMessage msg = sendRequestAndWaitResponse("Environment", "", GlucoseSensor.this);
-                LOGGER.info("Content: " + msg.getContent());
+                LOGGER.info("Measured blood glucose. Value: {}", msg.getContent());
                 sendMessage("DosageRecommender", msg.getContent(), GlucoseSensor.this);
                 if (Integer.valueOf(msg.getContent()) < 90)
                 {
@@ -52,7 +52,7 @@ public class GlucoseSensor extends Agent
                         GlucoseSensor.this);
                     if (Integer.valueOf(msg.getContent()) < 45)
                     {
-                        sendMessage("EmergencyAlarm", "Need medical emergency", GlucoseSensor.this);
+                        sendMessage("EmergencyAlarm", "Medical emergency", GlucoseSensor.this);
                     }
                 }
             }

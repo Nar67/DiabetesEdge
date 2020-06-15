@@ -15,7 +15,6 @@ import com.diabetesedge.sid.agents.edge.EmergencyAlarm;
 import com.diabetesedge.sid.agents.edge.GlucoseSensor;
 import com.diabetesedge.sid.agents.user.App;
 import com.diabetesedge.sid.agents.user.HypoglycemiaAlarm;
-import com.diabetesedge.sid.utils.OntologyManager;
 
 import jade.core.Profile;
 import jade.core.ProfileImpl;
@@ -25,31 +24,23 @@ import jade.wrapper.AgentController;
 import jade.wrapper.StaleProxyException;
 
 
-/**
- *
- * @author Ignasi Gómez-Sebastià
- */
+
 public class Main {
 
 
     private static AgentContainer container;
 
-    /**
-     * @param args the command line arguments
-     * @throws StaleProxyException
-     */
-
     public static void main(final String[] args) throws FileNotFoundException, StaleProxyException
     {
 
-        String JENA = "./";
-        String File = "src/main/resources/edge_diabetes.owl";
-        String NamingContext = "http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes";
-        String ns = "http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#";
-
-        System.out.println("----------------Starting program -------------");
-
-        OntologyManager ont = new OntologyManager(JENA, File, NamingContext);
+//        String JENA = "./";
+//        String File = "src/main/resources/edge_diabetes.owl";
+//        String NamingContext = "http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes";
+//        String ns = "http://www.sid-upc.edu/nars/ontologies/2020/4/edge_diabetes#";
+//
+//        System.out.println("----------------Starting program -------------");
+//
+//        // OntologyManager ont = new OntologyManager(JENA, File, NamingContext);
 
         final Profile profile = new ProfileImpl();
         profile.setParameter(Profile.CONTAINER_NAME, "DIABETES_EDGE");
@@ -90,8 +81,6 @@ public class Main {
         appAgent.start();
         emergencyAlarm.start();
         hypoAlarm.start();
-
-
     }
 
 }

@@ -45,7 +45,7 @@ public class CarbohydrateMeasurer extends Agent
             {
                 ACLMessage msg =
                     sendRequestAndWaitResponse("Environment", "", CarbohydrateMeasurer.this);
-                LOGGER.info("Content: " + msg.getContent());
+                LOGGER.info("Measured carbohydrates. Value: {}", msg.getContent());
                 sendMessage("DosageRecommender", msg.getContent(), CarbohydrateMeasurer.this);
             }
         };

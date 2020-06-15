@@ -79,7 +79,7 @@ public class App extends Agent
 
         this.addBehaviour(reciever);
 
-        WakerBehaviour waker = new WakerBehaviour(this, 10000)
+        WakerBehaviour waker = new WakerBehaviour(this, 20000)
         {
             @Override
             protected void onWake()
